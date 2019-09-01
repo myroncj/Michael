@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
-            Toast.makeText(applicationContext,it.message,3)
+            Toast.makeText(applicationContext,it.message,Toast.LENGTH_LONG).show()
         }
 
         scannerView.setOnClickListener {
