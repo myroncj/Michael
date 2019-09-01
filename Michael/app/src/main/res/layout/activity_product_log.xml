@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/background_dark"
+    tools:context=".ProductLogActivity">
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardView"
+       app:cardCornerRadius="4dp"
+       app:cardBackgroundColor="@android:color/darker_gray"
+       android:layout_marginHorizontal="35dp"
+       android:layout_marginVertical="75dp"
+       android:layout_gravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:gravity="center"
+           android:layout_marginHorizontal="10dp"
+           android:layout_marginVertical="10dp"
+           android:padding="15dp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <TextView
+               android:id="@+id/codeValueLabel"
+               android:text="Code :"
+               android:textAlignment="center"
+               android:textColor="@android:color/black"
+               android:textSize="28sp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <TextView
+               android:id="@+id/codeValueText"
+               android:layout_marginTop="30dp"
+               android:textColor="@android:color/black"
+               android:textSize="28sp"
+               android:textAlignment="center"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+           <TextView
+               android:id="@+id/quantityValueLabel"
+               android:text="Quantity :"
+               android:textAlignment="center"
+               android:layout_marginTop="30dp"
+               android:textColor="@android:color/black"
+               android:textSize="28sp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <EditText
+               android:id="@+id/quantityValue"
+               android:layout_marginTop="30dp"
+               android:inputType="number"
+               android:hint="ex. 3"
+               android:textAlignment="center"
+               android:textColor="@android:color/black"
+               android:textSize="28sp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <Button
+               android:id="@+id/submitData"
+               android:text="Submit"
+               android:background="@android:color/holo_green_light"
+               android:textColor="@android:color/white"
+               android:textSize="24sp"
+               android:textAlignment="center"
+               android:layout_marginTop="50dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+   </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.michael
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -36,15 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
-            runOnUiThread {
-                Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-            }
+            intent = Intent(this, ProductLogActivity::class.java)
+            intent.putExtra("codeValue", it.text)
+            startActivity(intent)
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
-            runOnUiThread {
-                Toast.makeText(this, "Camera initialization error: ${it.message}",
-                    Toast.LENGTH_LONG).show()
-            }
+            Toast.makeText(applicationContext,it.message,3)
         }
 
         scannerView.setOnClickListener {
