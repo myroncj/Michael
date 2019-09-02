@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
-            intent = Intent(this, ProductLogActivity::class.java)
-            intent.putExtra("codeValue", it.text)
-            startActivity(intent)
+            startActivity(createIntent(it.text))
         }
         codeScanner.errorCallback = ErrorCallback {
             // or ErrorCallback.SUPPRESS
@@ -45,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         scannerView.setOnClickListener {
             codeScanner.startPreview()
         }
+    }
+
+    private fun createIntent(text: String): Intent? {
+        intent = Intent(this, ProductLogActivity::class.java)
+        intent.putExtra("codeValue", text)
+        return intent
     }
 
     override fun onResume() {

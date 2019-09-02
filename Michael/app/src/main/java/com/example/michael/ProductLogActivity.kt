@@ -38,35 +38,45 @@ class ProductLogActivity : AppCompatActivity() {
         submitData.setOnClickListener(View.OnClickListener {
 
             try {
-                qty = quantityValue!!.text.toString()
-
-                data = hashMapOf(
-                    "code" to codeValue,
-                    "quantity" to qty,
-                    "time" to System.currentTimeMillis()
-                )
+                prepareDataForSubmission()
             } catch (ex: Exception) {
                 Log.e(TAG, ex.toString())
             }
 
             try {
-                db.collection("store")
-                    .add(data)
-                    .addOnSuccessListener { documentReference ->
-                        intent = Intent(this, MainActivity::class.java)
-                        Toast.makeText(applicationContext, "Stored $codeValue", Toast.LENGTH_LONG)
-                            .show()
-                        Log.e(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
-                        startActivity(intent)
-                    }
-                    .addOnFailureListener { e ->
-                        Log.e(TAG, "Error adding document", e)
-                    }
+                sendDataToFirestore()
             } catch (ex: Exception) {
                 Log.e(TAG, ex.toString())
             }
 
         })
 
+    }
+
+    private fun sendDataToFirestore() {
+
+        db.collection("store")
+            .add(data)
+            .addOnSuccessListener { documentReference ->
+                intent = Intent(this, MainActivity::class.java)
+                Toast.makeText(applicationContext, "Stored $codeValue", Toast.LENGTH_LONG)
+                    .show()
+                Log.e(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
+                startActivity(intent)
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error adding document", e)
+            }
+    }
+
+    private fun prepareDataForSubmission() {
+
+        qty = quantityValue!!.text.toString()
+
+        data = hashMapOf(
+            "code" to codeValue,
+            "quantity" to qty,
+            "time" to System.currentTimeMillis()
+        )
     }
 }
