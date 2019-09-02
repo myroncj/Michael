@@ -1,15 +1,10 @@
 package com.example.michael
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.budiyev.android.codescanner.AutoFocusMode
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
-import com.budiyev.android.codescanner.ScanMode
+import androidx.appcompat.app.AppCompatActivity
+import com.budiyev.android.codescanner.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
@@ -22,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startScanner() {
+
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
 
         codeScanner = CodeScanner(this, scannerView)
@@ -41,8 +37,9 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("codeValue", it.text)
             startActivity(intent)
         }
-        codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
-            Toast.makeText(applicationContext,it.message,Toast.LENGTH_LONG).show()
+        codeScanner.errorCallback = ErrorCallback {
+            // or ErrorCallback.SUPPRESS
+            Toast.makeText(applicationContext, it.message, Toast.LENGTH_LONG).show()
         }
 
         scannerView.setOnClickListener {
