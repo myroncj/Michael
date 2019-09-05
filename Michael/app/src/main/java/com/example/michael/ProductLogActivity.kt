@@ -10,7 +10,6 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_product_log.*
 
-
 class ProductLogActivity : AppCompatActivity() {
 
     private val TAG: String = "MICHAEL"

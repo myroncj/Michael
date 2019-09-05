@@ -9,13 +9,14 @@
     android:orientation="vertical"
     tools:context=".ProductLogActivity">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="30dp"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginVertical="75dp"
         app:cardBackgroundColor="@android:color/darker_gray"
         app:cardCornerRadius="4dp">
 
@@ -25,61 +26,56 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="10dp"
-                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="35dp">
 
-                <TextView
-                    android:id="@+id/codeValueLabel"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Code :"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="28sp" />
+                    android:hint="Code">
 
-                <TextView
-                    android:id="@+id/codeValueText"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/codeValueText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="30dp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="28sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="28sp" />
+                    android:hint="Quantity">
 
-                <TextView
-                    android:id="@+id/quantityValueLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="Quantity :"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="28sp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/quantityValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="30dp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="28sp" />
 
-                <EditText
-                    android:id="@+id/quantityValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:hint="ex. 3"
-                    android:inputType="number"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="28sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/submitData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:background="@android:color/holo_green_light"
+                    android:layout_margin="40dp"
+                    android:background="@android:color/holo_orange_light"
                     android:text="Submit"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="24sp" />
 
             </LinearLayout>
